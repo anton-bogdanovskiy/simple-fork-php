@@ -50,7 +50,6 @@ class FixedPool extends AbstractPool
             if ($this->isFinished()) {
                 return;
             }
-            parent::wait(false);
             if ($this->aliveCount() < $this->max) {
                 foreach ($this->processes as $process) {
                     if ($process->isStarted()) continue;
@@ -61,5 +60,4 @@ class FixedPool extends AbstractPool
             $block ? usleep($interval) : null;
         } while ($block);
     }
-
 }

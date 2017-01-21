@@ -6,9 +6,9 @@
  * @datetime: 2015/11/25 10:55
  */
 
-spl_autoload_register(function ($classname) {
-    if (strpos($classname, 'Jenner\\SimpleFork\\') === 0) {
-        $class = str_replace('Jenner\\SimpleFork\\', '', $classname);
+spl_autoload_register(function ($class) {
+    if (strpos($class, 'Jenner\\SimpleFork\\') === 0) {
+        $class = str_replace('Jenner\\SimpleFork\\', '', $class);
         $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
         $file  = __DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . $class . '.php';
 

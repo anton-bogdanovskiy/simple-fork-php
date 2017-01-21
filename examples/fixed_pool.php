@@ -6,7 +6,7 @@
  * @datetime: 2015/11/19 21:25
  */
 
-require dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+require __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'autoload.php';
 
 class TestRunnable implements \Jenner\SimpleFork\Runnable
 {
@@ -16,7 +16,7 @@ class TestRunnable implements \Jenner\SimpleFork\Runnable
      */
     public function run()
     {
-        sleep(10);
+        sleep(2);
         echo getmypid() . ':done' . PHP_EOL;
     }
 }
@@ -26,4 +26,4 @@ $pool->execute(new \Jenner\SimpleFork\Process(new TestRunnable()));
 $pool->execute(new \Jenner\SimpleFork\Process(new TestRunnable()));
 $pool->execute(new \Jenner\SimpleFork\Process(new TestRunnable()));
 
-$pool->wait();
+$pool->wait(true);

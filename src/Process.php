@@ -253,10 +253,10 @@ class Process
             }
             if (pcntl_wifexited($status)) {
                 $this->errno = pcntl_wexitstatus($status);
-                $this->errmsg = pcntl_strerror($this->errno);
+//                $this->errmsg = pcntl_strerror($this->errno);
             } else {
                 $this->errno = pcntl_get_last_error();
-                $this->errmsg = pcntl_strerror($this->errno);
+//                $this->errmsg = pcntl_strerror($this->errno);
             }
             if (pcntl_wifsignaled($status)) {
                 $this->if_signal = true;
